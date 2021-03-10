@@ -7,6 +7,11 @@ Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
+## [0.2.1] - 2021-03-10
+
+### Changed
+- Change release github action to use macos-latest so that macos cgo build works
+
 ## [0.2.0] - 2021-03-10
 
 ### Changed
