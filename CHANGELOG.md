@@ -7,6 +7,9 @@ Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
+### Changed
+- Updated goreleaser to build macOS version with cgo enabled
+
 ## [0.1.0] - 2020-12-30
 
 ### Added
