@@ -18,6 +18,9 @@
 The Sensu CPU usage check is a [Sensu Check][1] that provides alerting and
 metrics for CPU usage.  Metrics are provided in [nagios_perfdata][5] format.
 
+**Note:** The macOS binary is built using [cgo][6] and may not be portable
+across all versions of macOS.
+
 ## Usage examples
 
 ```
@@ -101,3 +104,4 @@ For more information about contributing to this plugin, see [Contributing][4].
 [3]: https://bonsai.sensu.io/assets/nixwiz/check-cpu-usage
 [4]: https://github.com/sensu/sensu-go/blob/master/CONTRIBUTING.md
 [5]: https://docs.sensu.io/sensu-go/latest/observability-pipeline/observe-schedule/collect-metrics-with-checks/#supported-output-metric-formats
+[6]: https://golang.org/cmd/cgo/
