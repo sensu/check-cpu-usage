@@ -1,6 +1,6 @@
-[![Sensu Bonsai Asset](https://img.shields.io/badge/Bonsai-Download%20Me-brightgreen.svg?colorB=89C967&logo=sensu)](https://bonsai.sensu.io/assets/nixwiz/check-cpu-usage)
-![Go Test](https://github.com/nixwiz/check-cpu-usage/workflows/Go%20Test/badge.svg)
-![goreleaser](https://github.com/nixwiz/check-cpu-usage/workflows/goreleaser/badge.svg)
+[![Sensu Bonsai Asset](https://img.shields.io/badge/Bonsai-Download%20Me-brightgreen.svg?colorB=89C967&logo=sensu)](https://bonsai.sensu.io/assets/sensu/check-cpu-usage)
+![Go Test](https://github.com/sensu/check-cpu-usage/workflows/Go%20Test/badge.svg)
+![goreleaser](https://github.com/sensu/check-cpu-usage/workflows/goreleaser/badge.svg)
 
 # Sensu CPU usage check
 
@@ -52,7 +52,7 @@ using an asset, please consider doing so! If you're using sensuctl 5.13 with
 Sensu Backend 5.13 or later, you can use the following command to add the asset:
 
 ```
-sensuctl asset add nixwiz/check-cpu-usage
+sensuctl asset add sensu/check-cpu-usage
 ```
 
 If you're using an earlier version of sensuctl, you can find the asset on the
@@ -79,7 +79,7 @@ spec:
   subscriptions:
   - system
   runtime_assets:
-  - nixwiz/check-cpu-usage
+  - sensu/check-cpu-usage
 ```
 
 ## Installation from source
@@ -101,7 +101,7 @@ For more information about contributing to this plugin, see [Contributing][4].
 
 [1]: https://docs.sensu.io/sensu-go/latest/reference/checks/
 [2]: https://docs.sensu.io/sensu-go/latest/reference/assets/
-[3]: https://bonsai.sensu.io/assets/nixwiz/check-cpu-usage
+[3]: https://bonsai.sensu.io/assets/sensu/check-cpu-usage
 [4]: https://github.com/sensu/sensu-go/blob/master/CONTRIBUTING.md
 [5]: https://docs.sensu.io/sensu-go/latest/observability-pipeline/observe-schedule/collect-metrics-with-checks/#supported-output-metric-formats
 [6]: https://golang.org/cmd/cgo/
