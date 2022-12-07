@@ -81,8 +81,6 @@ func executeCheck(event *types.Event) (int, error) {
 		return sensu.CheckStateCritical, fmt.Errorf("Error obtaining CPU timings: %v", err)
 	}
 
-	startTotal := start[0].User + start[0].System + start[0].Idle + start[0].Nice + start[0].Iowait + start[0].Irq + start[0].Softirq + start[0].Steal + start[0].Guest + start[0].GuestNice
-
 	duration, err := time.ParseDuration(fmt.Sprintf("%ds", plugin.Interval))
 	if err != nil {
 		return sensu.CheckStateCritical, fmt.Errorf("Error parsing duration: %v", err)
@@ -95,9 +93,16 @@ func executeCheck(event *types.Event) (int, error) {
 		return sensu.CheckStateCritical, fmt.Errorf("Error obtaining CPU timings: %v", err)
 	}
 
-	endTotal := end[0].User + end[0].System + end[0].Idle + end[0].Nice + end[0].Iowait + end[0].Irq + end[0].Softirq + end[0].Steal + end[0].Guest + end[0].GuestNice
+	diff := (end[0].User - start[0].User)
+	diff += (end[0].System - start[0].System)
+	diff += (end[0].Idle - start[0].Idle)
+	diff += (end[0].Nice - start[0].Nice)
+	diff += (end[0].Iowait - start[0].Iowait)
+	diff += (end[0].Irq - start[0].Irq)
+	diff += (end[0].Softirq - start[0].Softirq)
+	diff += (end[0].Steal - start[0].Steal)
+	diff += (end[0].GuestNice - start[0].GuestNice)
 
-	diff := endTotal - startTotal
 	idlePct := ((end[0].Idle - start[0].Idle) / diff) * 100
 	usedPct := 100 - idlePct
 
