@@ -3,7 +3,7 @@ package main
 import (
 	"testing"
 
-	"github.com/elfranne/sensu-plugin-sdk/sensu"
+	"github.com/sensu/sensu-plugin-sdk/sensu"
 	corev2 "github.com/sensu/core/v2"
 	"github.com/stretchr/testify/assert"
 )

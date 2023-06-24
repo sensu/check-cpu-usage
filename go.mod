@@ -3,8 +3,8 @@ module github.com/sensu/check-cpu-usage
 go 1.18
 
 require (
-	github.com/elfranne/sensu-plugin-sdk v0.16.1-dev
 	github.com/sensu/core/v2 v2.19.0
+	github.com/sensu/sensu-plugin-sdk v0.18.0
 	github.com/shirou/gopsutil/v3 v3.23.5
 	github.com/stretchr/testify v1.8.4
 )
