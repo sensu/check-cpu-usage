@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/sensu-community/sensu-plugin-sdk/sensu"
-	"github.com/sensu/sensu-go/types"
+	"github.com/elfranne/sensu-plugin-sdk/sensu"
+	corev2 "github.com/sensu/core/v2"
 	"github.com/shirou/gopsutil/v3/cpu"
 )
 
@@ -26,8 +26,8 @@ var (
 		},
 	}
 
-	options = []*sensu.PluginConfigOption{
-		{
+	options = []sensu.ConfigOption{
+		&sensu.PluginConfigOption[float64]{
 			Path:      "critical",
 			Argument:  "critical",
 			Shorthand: "c",
@@ -35,7 +35,7 @@ var (
 			Usage:     "Critical threshold for overall CPU usage",
 			Value:     &plugin.Critical,
 		},
-		{
+		&sensu.PluginConfigOption[float64]{
 			Path:      "warning",
 			Argument:  "warning",
 			Shorthand: "w",
@@ -43,7 +43,7 @@ var (
 			Usage:     "Warning threshold for overall CPU usage",
 			Value:     &plugin.Warning,
 		},
-		{
+		&sensu.PluginConfigOption[int]{
 			Path:      "sample-interval",
 			Argument:  "sample-interval",
 			Shorthand: "s",
@@ -55,11 +55,11 @@ var (
 )
 
 func main() {
-	check := sensu.NewGoCheck(&plugin.PluginConfig, options, checkArgs, executeCheck, false)
+	check := sensu.NewCheck(&plugin.PluginConfig, options, checkArgs, executeCheck, false)
 	check.Execute()
 }
 
-func checkArgs(event *types.Event) (int, error) {
+func checkArgs(event *corev2.Event) (int, error) {
 	if plugin.Critical == 0 {
 		return sensu.CheckStateWarning, fmt.Errorf("--critical is required")
 	}
@@ -75,7 +75,7 @@ func checkArgs(event *types.Event) (int, error) {
 	return sensu.CheckStateOK, nil
 }
 
-func executeCheck(event *types.Event) (int, error) {
+func executeCheck(event *corev2.Event) (int, error) {
 	start, err := cpu.Times(false)
 	if err != nil {
 		return sensu.CheckStateCritical, fmt.Errorf("Error obtaining CPU timings: %v", err)
