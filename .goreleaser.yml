@@ -28,7 +28,6 @@ builds:
       - linux_arm_6
       - linux_arm_7
       - linux_arm64
-      - darwin_arm64
       - windows_386
       - windows_amd64
   - # macOS Build
