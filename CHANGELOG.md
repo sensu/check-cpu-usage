@@ -7,6 +7,17 @@ Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
+## [0.2.3] - 2025-02-11
+
+### Changed
+- Updated go version
+
+### Added
+- Support for darwin_arm64 build
+
+### Changed
+- Updated README
+- 
 ## [0.2.2] - 2021-03-31
 
 ### Changed
