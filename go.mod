@@ -1,6 +1,6 @@
 module github.com/nixwiz/check-cpu-usage
 
-go 1.22
+go 1.21
 
 require (
 	github.com/sensu-community/sensu-plugin-sdk v0.11.0
