@@ -18,3 +18,5 @@ vendor/
 # deploy
 bonsai/
 dist/
+
+report.json
